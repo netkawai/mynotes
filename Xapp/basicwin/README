@@ -1,0 +1,5 @@
+Volume 1のXlibプログラミングマニュアルに載っている
+basicwinのソース、及び、automake,autoconfでconfigure
+Makefileを作るためのMakefile.am,configure.in
+
+jpwinはbasicwinの表示を日本語にしてものである

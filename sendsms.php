@@ -8,7 +8,7 @@
 
 $modem_ip = '192.168.1.131';
 $message = 'hellohello';
-$mobile = '+919900158292';
+$mobile = '+91xxxxxxxxx';
 
 $upd_header = '001100'; // SMSC information is zeo, SMS-Submit, TP-Message is itself.
 

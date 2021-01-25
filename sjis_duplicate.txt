@@ -16,6 +16,8 @@
 //
 //	2区と13区にある重複文字の既定コードポイントを与える表
 //
+// The list of duplicated SJIS code points in Row 2 and Row 13.
+
 static const unsigned short TABLE_SjisPoorcodeDef[] = 
 {
 	0x81be, // ∪
@@ -46,6 +48,8 @@ static const unsigned short TABLE_SjisPoorcodeDef[] =
 //
 //	2区と13区の重複文字を既定コードポイントへ変換する表
 //
+//  The conversion table of duplicated code points in Row 2 and Row 3 
+// to default or recommended code point of TABLE_SjisPoorcodeDef.
 static const unsigned  short TABLE_SjisPoorcodeIndex[][2] = 
 {
 //  { 重複文字値, 対応する TABLE_SjisPoorcodeDef 内の位置 }
@@ -79,14 +83,16 @@ static const unsigned  short TABLE_SjisPoorcodeIndex[][2] =
 //  確認のためのテーブル群と説明
 
 //	typedef struct tag_SjisPoorcodeResolvTable {
-//		uint16_t codeDefined;  // 既定コードポイント
-//		uint16_t pcodeAlias[2];  // エイリアスコードポイント
+//		uint16_t codeDefined;  // default or recommended code point
+//		uint16_t pcodeAlias[2];  // alias code points
 //	} SJIS_POORCODE_RESOLV_TABLE;
 //
 //
 //	JIS X 0208 により第2区にて定義された記号について
+// JIS X 208 define symbols in Row 2
 //
 //	2区で定義されている文字に対しては、2区のコードポイントを使う。
+// 
 //
 //	const SJIS_POORCODE_RESOLV_TABLE TABLE_cSPCR_block2[] = {
 //		{ 0x81be, { 0x879c, 0      } }, // 00. ∪
@@ -106,6 +112,7 @@ static const unsigned  short TABLE_SjisPoorcodeIndex[][2] =
 //
 //	2区で定義済みの文字を除いて、
 //	残った文字に対してこの13区（NEC特殊文字）のコードポイントを使う。
+// The symbols extended by NEC defined in Row 13, it uses Row 13 except symbols which is defined in Row 2
 //
 //	const SJIS_POORCODE_RESOLV_TABLE TABLE_cSPCR_block13 = {
 //		{ 0x8754, { 0xfa4a, 0 } }, // 10. Ⅰ
@@ -125,19 +132,24 @@ static const unsigned  short TABLE_SjisPoorcodeIndex[][2] =
 //
 //
 //
+
+
 //	IBM の都合により第115区～119区に定義された文字について
 //
 //	2区と 13区で定義済みの文字を除いて残った文字に対しては、
 //	<del>89区から92区にある、それと等価な NEC選定IBM拡張文字コードポイントを使う。</del>
+
 //  115区から 119区にある IBM拡張文字のコードポイントを使う。
 //	0xfa5c から 0xfc4b、
 //	0xfa40 から 0xfa49、
 //	0xfa55 から 0xfa57 の SJIS コードポイントを規定とする。
+
 //	それらのコードポイントのエイリアスは、それぞれ、
 //	0xed40 から 0xeeec、
 //	0xeeef から 0xeef8、
 //	0xeefa から 0xeefc の SJIS コードポイントである。
 //
+// c1 (Most high byte), c2(Least byste)
 
 if( c1 == 0xfa || c1 == 0xfb || (c1 == 0xfc && c2 <= 0x4b) ){
 	if     ( code <= 0xfa49 ) { code -= 0x0b51; }	/* fa40～fa49 → eeef～eef8 (ⅰ～ⅹ) */
@@ -170,6 +182,8 @@ if( c1 == 0xed || c1 == 0xee ){
 	else if( code == 0xeef9 ) { ; }
 	else                      { code += 0x0b5b; }	/* eefa～eefc → fa55～fa57 (￤～＂) */
 }
+
+
 
 /*
 CodePage 932 : 398 non-round-trip mappings

@@ -10,22 +10,25 @@ static pthread_mutex_t	mutex = NULL;
 static pthread_cond_t	cond = NULL;
 static unsigned int		count = 0;
 
-/* nanosleep pthread_cond_signal‚Ì‹““®‚ªƒnƒbƒLƒŠ‚µ‚È‚¢‚Ì‚Åì¬‚µ‚½
-   ƒvƒƒOƒ‰ƒ€BƒXƒŒƒbƒhì¬‘O‚ÉAcondition‚Ég—p‚·‚épthread_cond_t‚Æ
-   ptrehad_mutex_t‚Ì‰Šú‰»‚ğs‚¢A’Ê’mƒXƒŒƒbƒh‚ğæ‚Éì¬‚µ‚½B
-   thread1‚Í8•bŒo‚Â‚Ü‚Åpthread_cond_siginal‚Ís‚í‚ê‚È‚¢
+/* nanosleep pthread_cond_signalã®æŒ™å‹•ãŒãƒãƒƒã‚­ãƒªã—ãªã„ã®ã§ä½œæˆã—ãŸ
+   ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã€‚ã‚¹ãƒ¬ãƒƒãƒ‰ä½œæˆå‰ã«ã€conditionã«ä½¿ç”¨ã™ã‚‹pthread_cond_tã¨
+   ptrehad_mutex_tã®åˆæœŸåŒ–ã‚’è¡Œã„ã€é€šçŸ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å…ˆã«ä½œæˆã—ãŸã€‚
+   thread1ã¯8ç§’çµŒã¤ã¾ã§pthread_cond_siginalã¯è¡Œã‚ã‚Œãªã„
 
-   ‚»‚ÌŒãAthread1‚©‚çcond_signal‚ğ‘—M‚·‚é‚ÆAˆê“xthread2‚Ìcondition ‘Ò‚¿‚ª
-   ‰ğœ‚³‚ê‚é‚Í‚¸‚¾‚ªAlinux‚Å‚Í‰ğœ‚³‚ê‚¸A‚³‚ç‚Éˆê“x‰ğœ‚µ‚½ŒãAmainƒXƒŒƒbƒh‚©‚ç
-   Ä“x‰ğœ‚ğ‚İ‚é‚ªAlinux‚Å‚Íãè‚­‚¢‚©‚È‚¢B
+   ãã®å¾Œã€thread1ã‹ã‚‰cond_signalã‚’é€ä¿¡ã™ã‚‹ã¨ã€ä¸€åº¦thread2ã®condition å¾…ã¡ãŒ
+   è§£é™¤ã•ã‚Œã‚‹ã¯ãšã ãŒã€linuxã§ã¯è§£é™¤ã•ã‚Œãšã€ã•ã‚‰ã«ä¸€åº¦è§£é™¤ã—ãŸå¾Œã€mainã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰
+   å†åº¦è§£é™¤ã‚’è©¦ã¿ã‚‹ãŒã€linuxã§ã¯ä¸Šæ‰‹ãã„ã‹ãªã„ã€‚
 
-   linux‚Å‚Íˆê“xAcond_signal‚Å’Ê’m‚µ‚½ŒãAÅ‰Šú‰»‚Í©“®‚Ås‚í‚ê‚È‚¢A
-   MacOSX‚Ìê‡‚ÍŒ³XƒXƒŒƒbƒhƒx[ƒX‚Ìd‘g‚İ‚ª‚ ‚é‚ªAlinux‚ÍƒvƒƒZƒXƒx[ƒX‚Ìd‘g‚İ‚Ìã‚É
-   thread‚Ìd‘g‚İ‚ğæ‚¹‚Ä‚¢‚é‚Ì‚ÅAthread‚Í‚ ‚­‚Ü‚Åtempolary‚Ìresource‚Å‚ ‚èA
-   multi-thread‚Åmessage‚ğ‘o•ûŒü‚Å‚â‚èæ‚è‚·‚éRTOS“I‚Èl‚¦‚Ä•û‚Æ‚ÍˆÙ‚È‚éB
+   I don't know the behavior of nanosleep and pthread_cond_signal.
+   Before creating a thread, it initializes pthread_cond_t and pthread_mutex_t for
+   condition, and  thread_1 will notify a signal(condition) after 8 seconds with pthread_cond_signal.
    
-   ‹A‚Á‚Ä‚©‚çÄ“xŠm”F‚·‚éBmutex‚Ìdeadlock/a condition value‚ÌÅ‰Šú‰»‚·‚é‚±‚Æ‚Å
-   ˆÓ}‚µ‚½“®ì‚É‚È‚é‚©‚Ç‚¤‚©‚ğŠm”F‚·‚éB
+   after thread_1 send the signal, thread_2 will be released from waiting of condition, in 32bit linux,
+   it will not be released. Moreover, if main thread trys to release the condition also, it will not be released.
+
+   Intel MacOS X(32bit) is success. but MacOS X use the long mode with compatibility mode to support 64bit program
+   Linux(x86_64) is success, only 32bit(i386) version is stuck up. I don't know why.
+   
 */
 
 int main (void)
@@ -76,10 +79,10 @@ int main (void)
 	/* join */
 
 	pthread_join(th1, NULL);
-#if 0@//  2‰ñ–Ú‚Ì’Ê’m
+#if 0ã€€//  second notification
 	pthread_cond_signal(&cond);
 #endif
-	// ‹­§canel
+	// force to call cancel(Android does not have it)
 	pthread_cancel(th2);
   err = pthread_join(th2, NULL);
 
