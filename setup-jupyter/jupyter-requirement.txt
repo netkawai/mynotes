@@ -15,3 +15,7 @@ pyparsing
 holidays
 requests
 black
+pyvista
+ipyvtklink
+piglet
+pyvirtualdisplay

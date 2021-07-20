@@ -71,3 +71,5 @@ International pound
 (3.048/120) == 0.0254 OK
 (1.1+0.11) == 1.21 NG
 (11+1.1) == 12.1 OK
+
+https://github.com/dotnet/efcore/issues/5466#issue-156217733
