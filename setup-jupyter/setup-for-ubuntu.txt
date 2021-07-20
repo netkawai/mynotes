@@ -23,6 +23,8 @@ pip install --no-cache-dir --user -r /mnt/c/iblast/jupyter-requirement.txt
 enable-jupyter-extensions.sh
 
 
+
+
 mkdir $HOME/notebooks
 
 jupyter notebook --no-browser --port=8888 --ip=0.0.0.0 --user="kawai"

@@ -19,3 +19,6 @@ pyvista
 ipyvtklink
 piglet
 pyvirtualdisplay
+pygeos
+geopandas
+rasterio
