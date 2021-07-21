@@ -90,10 +90,10 @@ even though, they can not execute m4 mirco or bash command, because of lack of C
 That is the reason, if you need , for instance, in MING64 to run m4 macro or bash through Python, that is not success.......
 This is the limitation.
 
-Luckily, some famous applications reply on Python2, they do not transit Python3. If I keep Python2 in MSYS2 and if I do not allow execute Python3 in MING64,
+Luckily, some famous applications rely on Python2 (As of ealry 2018), they do not transit Python3. If I keep Python2 in MSYS2 and if I do not allow execute Python3 in MING64,
 If the building process does not use the executable files generated in building processes for generating another files, it may work.....
 
-First generation iCore 7/5(Nehalem) donot support Unrestricted guest mode, which can run real mode OS directly in VM.
+First generation iCore 7/5(Nehalem) do not support Unrestricted guest mode, which can run real mode OS directly in VM.
 (Intel64-ia-32-architectures-software-developer-vol-3c-part-3 25.6 UNRESTRICTED GUESTS)
 
 Qemu compiling
