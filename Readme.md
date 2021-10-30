@@ -73,3 +73,5 @@ International pound
 (11+1.1) == 12.1 OK
 
 https://github.com/dotnet/efcore/issues/5466#issue-156217733
+
+![Bonjour](https://github.com/netkawai/misc-samples/blob/master/local-network-share.png?raw=true)
