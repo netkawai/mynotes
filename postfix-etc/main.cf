@@ -672,6 +672,8 @@ sample_directory = /usr/local/etc/postfix
 # readme_directory: The location of the Postfix README files.
 #
 readme_directory = /usr/local/share/doc/postfix
-inet_protocols = ipv4
+inet_protocols = ipv6
 meta_directory = /usr/local/libexec/postfix
 shlib_directory = /usr/local/lib/postfix
+smtp_address_preference = ipv6
+smtp_bind_address6 = 2600:1f11:4e9:e900:7c44:5261:93e3:df0f
