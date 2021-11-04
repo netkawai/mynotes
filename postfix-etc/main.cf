@@ -675,5 +675,23 @@ readme_directory = /usr/local/share/doc/postfix
 inet_protocols = ipv6
 meta_directory = /usr/local/libexec/postfix
 shlib_directory = /usr/local/lib/postfix
+
+# IPv6 Prefer
 smtp_address_preference = ipv6
-smtp_bind_address6 = 2600:1f11:4e9:e900:7c44:5261:93e3:df0f
+# smtp_bind_address6 = 2600:1f11:4e9:e900:7c44:5261:93e3:df0f
+
+# For SSL/TLS 
+smtpd_use_tls=yes
+smtpd_tls_auth_only = yes
+smtpd_tls_cert_file = /usr/local/etc/letsencrypt/live/jmlsoftware.ca/fullchain.pem
+smtpd_tls_key_file = /usr/local/etc/letsencrypt/live/jmlsoftware.ca/privkey.pem
+# Disable Poodle
+smtp_tls_security_level = may
+smtpd_tls_mandatory_protocols=!SSLv2,!SSLv3
+smtp_tls_mandatory_protocols=!SSLv2,!SSLv3
+smtpd_tls_protocols=!SSLv2,!SSLv3
+smtp_tls_protocols=!SSLv2,!SSLv3
+# Changes to SSL Ciphers
+tls_preempt_cipherlist = yes
+smtpd_tls_mandatory_ciphers = high
+tls_high_cipherlist = ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384
