@@ -15,3 +15,18 @@ smtpd_recipient_restrictions =
       reject_non_fqdn_recipient
       reject_non_fqdn_helo_hostname
 
+
+## Relay domains
+#
+#relay_domains =
+#        proxy:pgsql:/etc/postfix/sql-relaydomains.cf
+#transport_maps =
+#       proxy:pgsql:/etc/postfix/sql-transport.cf
+#        proxy:pgsql:/etc/postfix/sql-spliteddomains-transport.cf
+
+relayhost = [smtp-relay.sendinblue.com]:587
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl/mypasswd
+smtp_sasl_security_options = noanonymous
+smtp_tls_security_level = may
+header_size_limit = 4096000
