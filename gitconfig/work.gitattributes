@@ -53,6 +53,7 @@
 *.gitignore     text eol=lf
 *.gitmodules    text eol=lf
 
+*.ipynb text eol=lf
 
 #*.sln       merge=binary
 #*.csproj    merge=binary
