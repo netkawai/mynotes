@@ -50,7 +50,7 @@
 # It should be LF
 *.gitconfig   text eol=lf
 *.gitattributes text eol=lf
-*.gitignore     text eol=lf
+*.gitignore     text=auto
 *.gitmodules    text eol=lf
 
 *.ipynb text eol=lf
