@@ -21,7 +21,7 @@
 
 # ideally convert to LF in Unix, but we have already done without conversion.
 *.vb        -text eol=crlf
-*.cs        -text eol=crlf
+*.cs        text eol=crlf
 *.resx      text=auto eol=crlf
 
 # XML is not necessary for CRLF
