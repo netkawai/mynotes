@@ -24,3 +24,6 @@ If you need to see Work Or School Account, access https://myaccount.microsoft.co
 (my is important)
 
 This happens easily. Some developers believe that an email address will have enough uniqueness to store in a database.Yes, if you only think ONE database, it is true, but nowadays, we are facing multiple instances (database or service). If you migrate two databases or services into one, if both has the same email address as identifier, it will be in trouble.
+
+https://graph.microsoft.com/v1.0/me/drive/
+https://graph.microsoft.com/v1.0/me/drive/root:/{$path_to_item}:/createUploadSession
