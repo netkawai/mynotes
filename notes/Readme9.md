@@ -27,3 +27,5 @@ This happens easily. Some developers believe that an email address will have eno
 
 https://graph.microsoft.com/v1.0/me/drive/
 https://graph.microsoft.com/v1.0/me/drive/root:/{$path_to_item}:/createUploadSession
+
+Create an app specific-password https://account.activedirectory.windowsazure.com/AppPasswords.aspx
