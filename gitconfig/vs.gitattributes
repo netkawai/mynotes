@@ -53,3 +53,5 @@
 #*.props     merge=binary
 #*.filters   merge=binary
 #*.vcxitems  merge=binary
+
+*.py eol=lf

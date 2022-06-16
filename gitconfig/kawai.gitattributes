@@ -3,6 +3,14 @@
 ###############################################################################
 *            text=auto
 
+# Specific LF
+*.py  eol=lf
+*.sh  eol=lf
+*.tcl eol=lf
+*.js  eol=lf
+*.pl  eol=lf
+*.php eol=lf
+*.md  eol=lf
 ###############################################################################
 # Set the merge driver for project and solution files
 #
@@ -15,45 +23,26 @@
 # uncomment the group further below
 ###############################################################################
 
-*.diff      text eol=crlf
-*.patch     text eol=crlf
-*.py        text=auto
+*.sln        text eol=crlf
+*.csproj     text eol=crlf
+*.vbproj     text eol=crlf
+*.vcxproj    text eol=crlf
+*.vcproj     text eol=crlf
+*.dbproj     text eol=crlf
+*.fsproj     text eol=crlf
+*.lsproj     text eol=crlf
+*.wixproj    text eol=crlf
+*.modelproj  text eol=crlf
+*.sqlproj    text eol=crlf
+*.wmaproj    text eol=crlf
 
-# ideally convert to LF in Unix, but we have already done without conversion.
-*.vb        -text eol=crlf
-*.cs        text eol=crlf
-*.resx      text=auto eol=crlf
+*.xproj      text eol=crlf
+*.props      text eol=crlf
+*.filters    text eol=crlf
+*.vcxitems   text eol=crlf
 
-# XML is not necessary for CRLF
-*.csproj     text=auto
-*.vbproj     text=auto
-*.vcxproj    text=auto
-*.vcproj     text=auto
-*.dbproj     text=auto
-*.fsproj     text=auto
-*.lsproj     text=auto
-*.wixproj    text=auto
-*.modelproj  text=auto
-*.sqlproj    text=auto
-*.wwaproj    text=auto
-*.xproj      text=auto
-*.props      text=auto
-*.filters    text=auto
-*.vcxitems   text=auto
-
-# XML is required to CRLF
-*.sln        text=auto eol=crlf
-# But not for XML file extension
-# .xml		 text=auto
-*.svg		 text=auto eol=crlf
-
-# It should be LF
-*.gitconfig   text eol=lf
-*.gitattributes text eol=auto
-*.gitignore     text eol=auto
-*.gitmodules    text eol=auto
-
-*.ipynb text eol=lf
+*.gitconfig  text eol=lf
+*.gitattributes text eol=lf
 
 #*.sln       merge=binary
 #*.csproj    merge=binary
@@ -72,3 +61,4 @@
 #*.props     merge=binary
 #*.filters   merge=binary
 #*.vcxitems  merge=binary
+
