@@ -1,6 +1,0 @@
-[core]
-	autocrlf = true
-	safecrlf = true
-	whitespace = cr-at-eol
-	excludesfile = ~/.gitignore_global
-    attributesfile = ~/.gitattributes
