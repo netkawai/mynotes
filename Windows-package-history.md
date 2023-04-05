@@ -1,17 +1,17 @@
 In the beginning, Windows NT API was created in mind of nomenclature of the original Windows 16bit. 
 However at the time, Unicode was about standarized but UTF-8 was not existed. So Microsoft define two APIs for one function with A and W.
 
-The function with W has argument w_char (16bit), function with A has char (7bit).
+The function with W has argument w_char (16bit), function with A has char (8bit with multibyte character set).
 
-Windows NT evolved in Windows 2000 with the integration of Windows 9x line. All APIs are integrated which eventually call in Win32 API.
-At the time, Windows NT equals Windows 32bit version. Even 64it version Windows 7 came out, but most API manner or rules did not change.
+Windows NT evolved in Windows 2000 with the integration of Windows 9x line. All APIs are integrated which eventually called as Win32 API.
+At the time, Windows NT equals Windows 32bit version. Even After Windows 2003 64it version came out, most API manner or rules did not change.
 
 From Windows 8, Microsoft introduced Windows Runtime and Microsoft Store. Those are analogy of what smartphone platform appeared late 2000s.
 Basically the app runs on App Contains (the evolution of APP-V - Office app) with new App package format and provide mechanism to install without Admin (not Program Files),
-and Settings can control certain aspect such as the local file access, the Internet, or some resources. Microsoft Store App.
+and Settings can control certain aspect such as the local file access, the Internet, or some resources, and auto-upate and cataloged through Microsoft Store App.
 
-However, those mechanism was introduced complete in different layer as a new COMs (other than DirectX Runtime) due to the purpose or goal of this mechnism,
-those two world are isolated, originally if the developer want to create Microsoft Store App, they have create a completely whole stuff.
+In design, the mechanisms were introduced completely different layers as a new COM (WinRT COM) (other than DirectX Runtime) due to the purpose or goal of this mechnism,
+those two world are isolated, originally if the developer want to create Microsoft Store App, they have create a completely different stuff not Win32 API.
 
 
 Unlike iPhone or Android, those completely new device or new platform, Microsoft could not compete those software platform and hardware rapid revolution.
