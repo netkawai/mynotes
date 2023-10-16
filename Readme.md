@@ -9,3 +9,7 @@ I simply copied and modified them. I do not declare copyright for those codes as
 https://github.com/dotnet/efcore/issues/5466#issue-156217733
 
 ![Bonjour](https://github.com/netkawai/misc-samples/blob/master/local-network-share.png?raw=true)
+
+POSIX test examples.
+
+https://github.com/zephyrproject-rtos/zephyr/tree/24085d05e6fa48c69e694efed176e4195dbcd76c/tests/posix
