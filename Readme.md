@@ -1,5 +1,8 @@
 This repository is miscellaneous, memos, and snippets.
 
+TODO:
+Make a folder to categorization, at least Windows(the relating the company products), Unicode, Linux (relating to Unix include X11) in sub folder. 
+
 If you copy any codes from here, I do not have any responsibility.
 There are some codes from others. 
 I simply copied and modified them. I do not declare copyright for those codes as well.
