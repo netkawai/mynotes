@@ -29,6 +29,10 @@ sys.exit(1)
 ```batch
 setlocal enableextensions
 setlocal enabledelayedexpansion	
+REM OK
+echo "!ERRORLEVEL!"
+REM It might cause issue
+REM echo "%ERRORLEVEL%"
 
 py exit1.py
 IF "!ERRORLEVEL!" NEQ "0" (
