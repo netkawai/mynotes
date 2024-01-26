@@ -1,6 +1,7 @@
 # bash redirect.
 # redirect stdout and stderr into one file
 # here is a file contain text I am file content
+```bash
 $ ls
 here
 $ cat here
@@ -18,3 +19,4 @@ cat: file2: No such file or directory
 $ cat log.txt
 I am file content
 cat: file2: No such file or directory
+```
