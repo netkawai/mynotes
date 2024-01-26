@@ -19,3 +19,18 @@ One thing is to proivde %ERRORLEVEL% as analogy of $? of sh(bash)
 
 IF ERRORLEVEL vs %ERRORLEVEL% vs !ERRORLEVEL!
 https://devblogs.microsoft.com/oldnewthing/20080926-00/?p=20743
+exit1.py
+```python
+import sys
+sys.exit(1)
+```
+
+```batch
+setlocal enableextensions
+setlocal enabledelayedexpansion	
+
+py exit1.py
+IF "!ERRORLEVEL!" NEQ "0" (
+   EXIT \B %ERRORLEVEL
+)
+```
