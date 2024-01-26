@@ -31,6 +31,6 @@ setlocal enabledelayedexpansion
 
 py exit1.py
 IF "!ERRORLEVEL!" NEQ "0" (
-   EXIT \B %ERRORLEVEL
+   EXIT \B %ERRORLEVEL%
 )
 ```
