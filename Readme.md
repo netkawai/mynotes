@@ -16,3 +16,5 @@ https://github.com/zephyrproject-rtos/zephyr/tree/24085d05e6fa48c69e694efed176e4
 
 bitbake contains
 https://github.com/openembedded/bitbake/blob/5419a8473d6d4cd1d01537de68ad8d72cf5be0b2/lib/bb/utils.py#L1022
+
+https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml
