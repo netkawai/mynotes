@@ -17,6 +17,19 @@ For enableextensions
 I am not sure list of extension.
 One thing is to proivde %ERRORLEVEL% as analogy of $? of sh(bash)
 
+extension is off
+```
+> verify others 2> null
+> echo %errorlevel%
+%errorlevel%
+```
+extension is on
+```
+> verify others 2> null
+> echo %errorlevel%
+1
+```
+
 IF ERRORLEVEL vs %ERRORLEVEL% vs !ERRORLEVEL!  
 https://devblogs.microsoft.com/oldnewthing/20080926-00/?p=20743
 
